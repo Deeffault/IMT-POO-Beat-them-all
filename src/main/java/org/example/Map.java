@@ -1,5 +1,8 @@
 package org.example;
 
+import java.util.Random;
+import java.util.ArrayList;
+
 public class Map {
 
     String name;
@@ -7,6 +10,7 @@ public class Map {
     int end;
     int length;
     int currentPosition;
+    ArrayList<Integer> areas;
 
     public String getName() {
         return name;
@@ -48,6 +52,14 @@ public class Map {
         this.currentPosition = currentPosition;
     }
 
+    public ArrayList<Integer> getAreas() {
+        return areas;
+    }
+
+    public void setAreas(ArrayList<Integer> areas) {
+        this.areas = areas;
+    }
+
     public Map(String name, int start, int end, int length, int currentPosition) {
         this.name = name;
         this.start = start;
@@ -60,4 +72,10 @@ public class Map {
         return currentPosition >= length;
     }
 
+    public void generateEnemies(){
+        for (int i = this.start;i < this.end; i++){
+            Random numberEnemies = new Random();
+            areas.add(numberEnemies.nextInt(1,5));
+        }
+    }
 }
