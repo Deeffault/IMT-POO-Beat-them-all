@@ -69,5 +69,4 @@ public class Hero implements Character {
                 break;
         }
     }
-
 }
