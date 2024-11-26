@@ -1,6 +1,5 @@
 package org.example;
 
-import java.util.Random;
 import java.util.ArrayList;
 
 public class Map {
@@ -10,7 +9,7 @@ public class Map {
     int end;
     int length;
     int currentPosition;
-    ArrayList<Area> areas;
+    Area area;
 
     public String getName() {
         return name;
@@ -52,12 +51,12 @@ public class Map {
         this.currentPosition = currentPosition;
     }
 
-    public ArrayList<Area> getAreas() {
-        return areas;
+    public Area getArea() {
+        return area;
     }
 
-    public void setAreas(ArrayList<Area> areas) {
-        this.areas = areas;
+    public void setArea(Area area) {
+        this.area = area;
     }
 
     public Map(String name, int start, int end, int length, int currentPosition) {
@@ -66,10 +65,20 @@ public class Map {
         this.end = end;
         this.length = length;
         this.currentPosition = currentPosition;
+        initialize();
     }
-
+    private void initialize() {
+        generateAreas();
+    }
     public boolean isEndOfMap() {
         return currentPosition >= length;
+    }
+
+    public void generateAreas(){
+        for (int i=start; i<=end; i++){
+            area.generateEnemies();
+            area = area.nextArea;
+        }
     }
 
 }

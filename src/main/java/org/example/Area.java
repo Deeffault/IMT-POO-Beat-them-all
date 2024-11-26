@@ -6,18 +6,12 @@ import java.util.Random;
 public class Area {
 
     int nbEnemies;
-
     ArrayList<Ennemy> enemies;
-
     Area nextArea;
+
     public int getNbEnemies() {
         return nbEnemies;
     }
-
-    public void setNbEnemies(int nbEnemies) {
-        this.nbEnemies = nbEnemies;
-    }
-
 
     public ArrayList<Ennemy> getEnemiesTypes() {
         return enemies;
@@ -37,22 +31,22 @@ public class Area {
     }
 
     public void generateEnemies(){
-            Random numberEnemies = new Random();
+            Random random = new Random();
 
-            int nb_norm =numberEnemies.nextInt(1,5);
-                for (int i = 0; i < nb_norm; i++) {
-                    int enemyType = numberEnemies.nextInt(3); // 0, 1, or 2
+            nbEnemies =random.nextInt(1,5);
+                for (int i = 0; i < nbEnemies; i++) {
+                    int enemyType = random.nextInt(3); // 0, 1, or 2
 
                     Ennemy enemy;
                     switch (enemyType) {
                         case 0:
-                            enemy = new Ennemy(1,1);
+                            enemy = new Brigand();
                             break;
                         case 1:
-                            enemy = new Ennemy(2,1);
+                            enemy = new Gangster();
                             break;
                         case 2:
-                            enemy = new Ennemy(3,1);
+                            enemy = new Wrestler();
                             break;
                         default:
                             throw new IllegalStateException("Unexpected value: " + enemyType);
