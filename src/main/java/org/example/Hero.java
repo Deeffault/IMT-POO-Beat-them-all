@@ -53,7 +53,7 @@ public class Hero implements Character {
         healthPoints -= damage;
     }
 
-    public void useSpecalCapacity(Ennemy target) {
+    public void useSpecalCapacity(Character target) {
         switch (specialCapacity) {
             case HEALING:
                 healthPoints += 10;
@@ -64,8 +64,10 @@ public class Hero implements Character {
 //                isSpecialCapacityUsed = true;
 //                break;
             case ONE_SHOT:
-                target.takeDamage(target.getHealthPoints());
-                isSpecialCapacityUsed = true;
+                if (target instanceof Ennemy) {
+                    target.takeDamage(((Ennemy) target).getHealthPoints());
+                    isSpecialCapacityUsed = true;
+                }
                 break;
         }
     }
