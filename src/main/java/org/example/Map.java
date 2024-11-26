@@ -10,7 +10,7 @@ public class Map {
     int end;
     int length;
     int currentPosition;
-    ArrayList<Integer> areas;
+    ArrayList<Area> areas;
 
     public String getName() {
         return name;
@@ -52,11 +52,11 @@ public class Map {
         this.currentPosition = currentPosition;
     }
 
-    public ArrayList<Integer> getAreas() {
+    public ArrayList<Area> getAreas() {
         return areas;
     }
 
-    public void setAreas(ArrayList<Integer> areas) {
+    public void setAreas(ArrayList<Area> areas) {
         this.areas = areas;
     }
 
@@ -72,10 +72,4 @@ public class Map {
         return currentPosition >= length;
     }
 
-    public void generateEnemies(){
-        for (int i = this.start;i < this.end; i++){
-            Random numberEnemies = new Random();
-            areas.add(numberEnemies.nextInt(1,5));
-        }
-    }
 }
