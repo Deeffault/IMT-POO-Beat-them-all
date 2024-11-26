@@ -53,7 +53,7 @@ public class Hero implements Character {
         healthPoints -= damage;
     }
 
-    public void useSpecalCapacity(Character target) {
+    public void useSpecialCapacity(Character target) {
         switch (specialCapacity) {
             case HEALING:
                 healthPoints += 10;

@@ -4,4 +4,5 @@ public enum SpecialCapacity {
     HEALING,
     MATRIX,
     ONE_SHOT,
+    NONE,
 }

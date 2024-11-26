@@ -29,9 +29,23 @@ class HeroTest {
     }
 
     @Test
-    void useSpecalCapacity() {
+    void useSpecialCapacityHealing() {
         Hero hero = new Hero(100, 15, SpecialCapacity.HEALING);
-        hero.useSpecalCapacity(new Brigand());
+        hero.useSpecialCapacity(hero);
         assertEquals(110, hero.getHealthPoints());
+    }
+
+    @Test
+    void useSpecialCapacityOneShot() {
+        Hero hero = new Hero(100, 15, SpecialCapacity.ONE_SHOT);
+        Ennemy target = new Ennemy(100, 15);
+
+        hero.useSpecialCapacity(target);
+        assertFalse(target.isAlive());
+    }
+
+    @Test
+    void useSpecialCapacityMatrix() {
+        //TODO: Implement this test
     }
 }

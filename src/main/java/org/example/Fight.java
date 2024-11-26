@@ -24,7 +24,8 @@ public class Fight {
             String response = scanner.nextLine();
 
             if (response.equals("oui")) {
-                hero.useSpecalCapacity(ennemy);
+                System.out.println("Le héros utilise sa capacité spéciale : " + hero.getSpecialCapacity());
+                hero.useSpecialCapacity(ennemy);
                 hero.isSpecialCapacityUsed = true;
             }
         }
@@ -32,12 +33,14 @@ public class Fight {
         System.out.println("Le héros attaque " + attackCount + " fois !");
         for (int i = 0; i < attackCount && ennemy.isAlive(); i++) {
             int damage = hero.attack();
+            System.out.println("Le héros inflige " + damage + " dégâts !");
             ennemy.takeDamage(damage);
             System.out.println("L'ennemi a maintenant " + ennemy.getHealthPoints() + " PV !");
         }
 
         if (ennemy.isAlive() && !(ennemy instanceof Gangster)) {
             int enemyDamage = ennemy.attack();
+            System.out.println("Le héros reçoit " + enemyDamage + " dégâts !");
             hero.takeDamage(enemyDamage);
             System.out.println("Le héros a maintenant " + hero.getHealthPoints() + " PV !");
         }
