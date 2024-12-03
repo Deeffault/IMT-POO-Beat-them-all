@@ -3,8 +3,19 @@ package org.example;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * This class represents a fight between a hero and an enemy.
+ * It contains methods to handle the attack logic and special capacity usage.
+ */
 public class Fight {
 
+    /**
+     * Handles the attack logic between a hero and an enemy.
+     * The hero can attack multiple times and use a special capacity if available.
+     *
+     * @param hero   the hero character
+     * @param ennemy the enemy character
+     */
     public static void heroAttackEnnemy(Hero hero, Ennemy ennemy) {
         Random random = new Random();
 

@@ -12,7 +12,7 @@ class BrigandTest {
         int attackPoints = brigand.attack();
         assertEquals(10, attackPoints);
 
-        Hero hero = new Hero(100, 15, SpecialCapacity.ONE_SHOT);
+        Hero hero = new Hero(100, 15, SpecialCapacity.NONE);
         hero.takeDamage(attackPoints);
         assertEquals(90, hero.getHealthPoints());
     }
@@ -23,7 +23,7 @@ class BrigandTest {
         brigand.takeDamage(10);
         assertEquals(40, brigand.getHealthPoints());
 
-        Hero hero = new Hero(100, 15, SpecialCapacity.ONE_SHOT);
+        Hero hero = new Hero(100, 15, SpecialCapacity.NONE);
         hero.attack();
     }
 }
