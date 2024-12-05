@@ -76,7 +76,7 @@ public class Ennemy implements Character {
     /**
      * Checks if the enemy is alive.
      *
-     * @return true if the enemy is alive, false otherwise
+     * @return true if the enemy is alive, false otherwise·
      */
     @Override
     public boolean isAlive() {
@@ -91,5 +91,13 @@ public class Ennemy implements Character {
     @Override
     public void takeDamage(int damage) {
         healthPoints -= damage;
+    }
+
+    @Override
+    public String toString() {
+        return "Ennemy{" +
+                "healthPoints=" + healthPoints +
+                ", attackPoints=" + attackPoints +
+                '}';
     }
 }

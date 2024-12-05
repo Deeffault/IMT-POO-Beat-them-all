@@ -96,4 +96,13 @@ public class Area {
             enemies.add(enemy);
         }
     }
+
+    @Override
+    public String toString() {
+        return "Area{" +
+                "nbEnemies=" + nbEnemies +
+                ", enemies=" + enemies +
+                ", nextArea=" + nextArea +
+                '}';
+    }
 }

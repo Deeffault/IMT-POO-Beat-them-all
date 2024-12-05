@@ -168,4 +168,16 @@ public class Map {
             }
         }
     }
+
+    @Override
+    public String toString() {
+        return "Map{" +
+                "name='" + name + '\'' +
+                ", start=" + start +
+                ", end=" + end +
+                ", length=" + length +
+                ", currentPosition=" + currentPosition +
+                ", area=" + area +
+                '}';
+    }
 }

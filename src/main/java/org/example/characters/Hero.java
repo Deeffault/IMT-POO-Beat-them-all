@@ -142,4 +142,14 @@ public class Hero implements org.example.characters.Character {
                 break;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Hero{" +
+                "healthPoints=" + healthPoints +
+                ", attackPoints=" + attackPoints +
+                ", specialCapacity=" + specialCapacity +
+                ", isSpecialCapacityUsed=" + isSpecialCapacityUsed +
+                '}';
+    }
 }

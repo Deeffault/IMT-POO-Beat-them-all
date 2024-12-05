@@ -25,6 +25,16 @@ public class Main {
         maps.add(taverne);
 
 
+        System.out.println("Liste des héros :");
+        for (Hero hero : heroes) {
+            System.out.println(hero.toString());
+        }
+
+        System.out.println("Liste des maps :");
+        for (Map map : maps) {
+            System.out.println(map.toString());
+        }
+
 
     }
 }
