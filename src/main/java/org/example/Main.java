@@ -1,5 +1,9 @@
 package org.example;
 
+import org.example.characters.Hero;
+import org.example.characters.SpecialCapacity;
+import org.example.utils.Map;
+
 import java.util.ArrayList;
 
 public class Main {
@@ -9,10 +13,10 @@ public class Main {
         ArrayList<Hero> heroes = new ArrayList<>();
         Hero artur = new Hero(100, 10, SpecialCapacity.HEALING);
         Hero lancelot = new Hero(95, 12, SpecialCapacity.MATRIX);
-        Hero genièvre = new Hero(90,15, SpecialCapacity.ONE_SHOT);
+        Hero genievre = new Hero(90,15, SpecialCapacity.ONE_SHOT);
         heroes.add(artur);
         heroes.add(lancelot);
-        heroes.add(genièvre);
+        heroes.add(genievre);
 
         ArrayList<Map> maps = new ArrayList<>();
         Map caermaloyw = new Map("Chateau Caermaloyw",1,7,7,1);

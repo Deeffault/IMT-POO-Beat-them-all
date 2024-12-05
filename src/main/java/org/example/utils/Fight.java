@@ -1,4 +1,8 @@
-package org.example;
+package org.example.utils;
+
+import org.example.characters.Ennemy;
+import org.example.characters.Gangster;
+import org.example.characters.Hero;
 
 import java.util.Random;
 import java.util.Scanner;

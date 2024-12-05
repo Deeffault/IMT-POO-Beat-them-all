@@ -1,5 +1,8 @@
 package org.example;
 
+import org.example.characters.Ennemy;
+import org.example.characters.Hero;
+import org.example.characters.SpecialCapacity;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

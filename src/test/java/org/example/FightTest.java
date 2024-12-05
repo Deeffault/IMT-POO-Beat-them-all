@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.characters.*;
+import org.example.utils.Fight;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.characters;
 
 /**
  * This class represents a gangster enemy in the game.

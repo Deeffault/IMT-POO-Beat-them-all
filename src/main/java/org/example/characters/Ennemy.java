@@ -1,4 +1,4 @@
-package org.example;
+package org.example.characters;
 
 /**
  * This class represents an enemy character in the game.

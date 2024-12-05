@@ -1,4 +1,4 @@
-package org.example;
+package org.example.characters;
 
 /**
  * This interface represents a character in the game.

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.characters;
 
 /**
  * This enum represents the special capacities that a hero can have in the game.

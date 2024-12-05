@@ -1,10 +1,10 @@
-package org.example;
+package org.example.characters;
 
 /**
  * This class represents a hero character in the game.
  * A hero has health points, attack points, and a special capacity.
  */
-public class Hero implements Character {
+public class Hero implements org.example.characters.Character {
 
     /**
      * The health points of the hero.
