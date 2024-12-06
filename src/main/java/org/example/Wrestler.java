@@ -8,7 +8,7 @@ public class Wrestler extends Ennemy {
 
     @Override
     public int attack() {
-        System.out.println("Le lutteur attaque avec un coup de poing !");
+        System.out.println("Le catcheur attaque avec un coup de poing !");
         return getAttackPoints();
     }
 
