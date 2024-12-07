@@ -1,4 +1,9 @@
-package org.example;
+package org.example.utils;
+
+import org.example.characters.Brigand;
+import org.example.characters.Ennemy;
+import org.example.characters.Gangster;
+import org.example.characters.Wrestler;
 
 import java.util.ArrayList;
 import java.util.Random;

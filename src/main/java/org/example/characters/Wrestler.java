@@ -1,4 +1,6 @@
-package org.example;
+package org.example.characters;
+
+import org.example.characters.Ennemy;
 
 public class Wrestler extends Ennemy {
 

@@ -1,10 +1,25 @@
-package org.example;
+package org.example.utils;
+
+import org.example.characters.Ennemy;
+import org.example.characters.Gangster;
+import org.example.characters.Hero;
 
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * This class represents a fight between a hero and an enemy.
+ * It contains methods to handle the attack logic and special capacity usage.
+ */
 public class Fight {
 
+    /**
+     * Handles the attack logic between a hero and an enemy.
+     * The hero can attack multiple times and use a special capacity if available.
+     *
+     * @param hero   the hero character
+     * @param ennemy the enemy character
+     */
     public static void heroAttackEnnemy(Hero hero, Ennemy ennemy) {
         Random random = new Random();
 
@@ -24,7 +39,8 @@ public class Fight {
             String response = scanner.nextLine();
 
             if (response.equals("oui")) {
-                hero.useSpecalCapacity(ennemy);
+                System.out.println("Le héros utilise sa capacité spéciale : " + hero.getSpecialCapacity());
+                hero.useSpecialCapacity(ennemy);
                 hero.isSpecialCapacityUsed = true;
             }
         }
@@ -32,6 +48,7 @@ public class Fight {
         System.out.println("Le héros attaque " + attackCount + " fois !");
         for (int i = 0; i < attackCount && ennemy.isAlive(); i++) {
             int damage = hero.attack();
+            System.out.println("Le héros inflige " + damage + " dégâts !");
             ennemy.takeDamage(damage);
             if (!ennemy.isAlive()) {
                 System.out.println(ennemy.toString()+" est maintenant vaincu !\n");
@@ -42,6 +59,7 @@ public class Fight {
 
         if (ennemy.isAlive() && !(ennemy instanceof Gangster)) {
             int enemyDamage = ennemy.attack();
+            System.out.println("Le héros reçoit " + enemyDamage + " dégâts !");
             hero.takeDamage(enemyDamage);
             System.out.println("Le héros a maintenant " + hero.getHealthPoints() + " PV !");
         System.out.println("\n");

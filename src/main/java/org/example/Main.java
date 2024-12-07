@@ -2,7 +2,9 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import org.example.Fight;
+import org.example.utils.Fight;
+import org.example.characters.Hero;
+import org.example.characters.SpecialCapacity;
 
 
 public class Main {
