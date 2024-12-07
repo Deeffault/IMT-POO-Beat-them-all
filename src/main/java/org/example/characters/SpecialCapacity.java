@@ -10,9 +10,9 @@ public enum SpecialCapacity {
     HEALING,
 
     /**
-     * The matrix capacity allows the hero to dodge attacks.
+     * The rage capacity allows the hero to double his attacks against an ennemy.
      */
-    MATRIX,
+    RAGE,
 
     /**
      * The one-shot capacity allows the hero to defeat an enemy in one hit.

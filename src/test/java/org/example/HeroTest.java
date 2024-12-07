@@ -48,7 +48,23 @@ class HeroTest {
     }
 
     @Test
-    void useSpecialCapacityMatrix() {
-        //TODO: Implement this test
+    void useSpecialCapacityRage() {
+        Hero hero = new Hero(100, 15, SpecialCapacity.RAGE);
+        Ennemy target = new Ennemy(100, 15);
+
+        hero.useSpecialCapacity(target);
+        assertEquals(30, hero.attack());
+
+        hero.attack();
+        assertEquals(70, target.getHealthPoints() );
+
+        hero.attack();
+        assertEquals(40, target.getHealthPoints() );
+
+        hero.attack();
+        assertEquals(10, target.getHealthPoints() );
+
+        hero.attack();
+        assertFalse(target.isAlive());
     }
 }

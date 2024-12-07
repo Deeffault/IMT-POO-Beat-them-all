@@ -8,15 +8,26 @@ import org.example.characters.Wrestler;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Represents an area in the game that can contain multiple enemies.
+ * The number and type of enemies are randomly generated.
+ */
 public class Area {
     private int nbEnemies;
     private ArrayList<Ennemy> enemies;
 
+    /**
+     * Constructs an empty area with no enemies.
+     */
     public Area() {
         this.nbEnemies = 0;
         this.enemies = new ArrayList<>();
     }
 
+    /**
+     * Generates a random number of enemies (between 1 and 4) and populates the area with them.
+     * The type of each enemy is also randomly chosen.
+     */
     public void generateEnemies() {
         Random random = new Random();
         nbEnemies = random.nextInt(1, 5);
@@ -44,13 +55,21 @@ public class Area {
         }
     }
 
-    // Getters and setters
+    /**
+     * Returns the number of enemies in the area.
+     *
+     * @return the number of enemies
+     */
     public int getNbEnemies() {
         return nbEnemies;
     }
 
+    /**
+     * Returns the list of enemies in the area.
+     *
+     * @return the list of enemies
+     */
     public ArrayList<Ennemy> getEnemies() {
         return enemies;
     }
-
 }

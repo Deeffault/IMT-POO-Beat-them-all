@@ -1,34 +1,22 @@
 package org.example.characters;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * This class represents a hero character in the game.
  * A hero has health points, attack points, and a special capacity.
  */
 public class Hero implements org.example.characters.Character {
 
-    /**
-     * The health points of the hero.
-     */
+    private static final Logger logger = LogManager.getLogger(Hero.class);
+
     public int healthPoints;
-
-    /**
-     * The attack points of the hero.
-     */
     public int attackPoints;
-
-    /**
-     * The special capacity of the hero.
-     */
     public SpecialCapacity specialCapacity;
-
-    /**
-     * Indicates whether the special capacity has been used.
-     */
     public boolean isSpecialCapacityUsed = false;
 
     /**
-     * Constructs a new Hero with the specified health points, attack points, and special capacity.
-     *
      * @param healthPoints    the health points of the hero
      * @param attackPoints    the attack points of the hero
      * @param specialCapacity the special capacity of the hero
@@ -110,7 +98,7 @@ public class Hero implements org.example.characters.Character {
      */
     @Override
     public boolean isAlive() {
-        return healthPoints > 0;
+        return healthPoints >= 0;
     }
 
     /**
@@ -134,6 +122,17 @@ public class Hero implements org.example.characters.Character {
                 healthPoints += 10;
                 isSpecialCapacityUsed = true;
                 break;
+            case RAGE:
+//                while (target.isAlive()) {
+//                    int originalAttackPoints = attackPoints;
+//                    attackPoints *= 2;
+//                    logger.info("ennemy is alive" + target.isAlive());
+//                    if (!target.isAlive()) {
+//                        attackPoints = originalAttackPoints;
+//                        isSpecialCapacityUsed = true;
+//                        break;
+//                    }
+//                }
             case ONE_SHOT:
                 if (target instanceof Ennemy) {
                     target.takeDamage(((Ennemy) target).getHealthPoints());
