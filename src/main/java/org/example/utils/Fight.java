@@ -50,6 +50,10 @@ public class Fight {
             int damage = hero.attack();
             System.out.println("Le héros inflige " + damage + " dégâts !");
             ennemy.takeDamage(damage);
+            if (!ennemy.isAlive()) {
+                System.out.println(ennemy.toString()+" est maintenant vaincu !\n");
+                break;
+            }
             System.out.println("L'ennemi a maintenant " + ennemy.getHealthPoints() + " PV !");
         }
 
@@ -58,6 +62,7 @@ public class Fight {
             System.out.println("Le héros reçoit " + enemyDamage + " dégâts !");
             hero.takeDamage(enemyDamage);
             System.out.println("Le héros a maintenant " + hero.getHealthPoints() + " PV !");
+        System.out.println("\n");
         }
     }
 }
