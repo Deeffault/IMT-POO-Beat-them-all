@@ -3,6 +3,8 @@ package org.example;
 import java.util.ArrayList;
 import java.util.Scanner;
 import org.example.utils.Fight;
+import org.example.utils.Map;
+import org.example.utils.Area;
 import org.example.characters.Hero;
 import org.example.characters.SpecialCapacity;
 
