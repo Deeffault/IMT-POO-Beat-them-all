@@ -35,7 +35,7 @@ class FightTest {
         InputHandler inputHandler = new InputHandler(new Scanner(new ByteArrayInputStream(userInput.getBytes())));
 
         Main.gamePlan(inputHandler);
-
+        assertEquals(0, enemy.getHealthPoints(), "The enemy should be defeated");
         assertTrue(Main.map.getAreas().get(1).getEnemies().isEmpty(), "The list of enemies should be empty");
     }
     @Test

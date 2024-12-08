@@ -353,3 +353,31 @@
 2024-12-08 23:53:13 [main] INFO  org.example.utils.Fight - Wrestler (Point de vie = 10, Point d'attaque = 10)
 2024-12-08 23:53:14 [main] INFO  org.example.utils.Fight - The hero die before attacking
 2024-12-08 23:53:14 [main] INFO  org.example.Main - GAME OVER! The hero has died in the quest for the Grail.
+2024-12-09 00:13:14 [main] INFO  org.example.Main - Chosen map: Test map
+2024-12-09 00:13:14 [main] INFO  org.example.Main - Chosen character: Artur Pendragon
+2024-12-09 00:13:16 [main] INFO  org.example.Main - Player is in area 1 of Test
+2024-12-09 00:13:16 [main] INFO  org.example.Main - Enemies in area 1: 
+2024-12-09 00:13:17 [main] INFO  org.example.Main - Player is in area 2 of Test
+2024-12-09 00:13:18 [main] INFO  org.example.Main - Enemies in area 2: Enemy
+2024-12-09 00:13:18 [main] INFO  org.example.utils.Fight - The hero attacks 4 times
+2024-12-09 00:13:18 [main] INFO  org.example.utils.Fight - The hero attacks 4 time(s)
+2024-12-09 00:13:18 [main] INFO  org.example.utils.Fight - Ennemi (Point de vie = 0, Point d'attaque = 0)
+2024-12-09 00:13:18 [main] INFO  org.example.utils.Fight - Enemy is dead
+2024-12-09 00:13:18 [main] INFO  org.example.Main - Enemy defeated. Remaining enemies: 1
+2024-12-09 00:13:20 [main] INFO  org.example.Main - Player is in area 3 of Test
+2024-12-09 00:13:20 [main] INFO  org.example.Main - Enemies in area 3: 
+2024-12-09 00:13:20 [main] INFO  org.example.Main - Congratulations! Player has reached the end of the map Test and found the Grail.
+2024-12-09 00:14:35 [main] INFO  org.example.Main - Chosen map: Test map
+2024-12-09 00:14:35 [main] INFO  org.example.Main - Chosen character: Artur Pendragon
+2024-12-09 00:14:36 [main] INFO  org.example.Main - Player is in area 1 of Test
+2024-12-09 00:14:36 [main] INFO  org.example.Main - Enemies in area 1: 
+2024-12-09 00:14:38 [main] INFO  org.example.Main - Player is in area 2 of Test
+2024-12-09 00:14:39 [main] INFO  org.example.Main - Enemies in area 2: Enemy
+2024-12-09 00:14:39 [main] INFO  org.example.utils.Fight - The hero attacks 5 times
+2024-12-09 00:14:39 [main] INFO  org.example.utils.Fight - The hero attacks 5 time(s)
+2024-12-09 00:14:39 [main] INFO  org.example.utils.Fight - Ennemi (Point de vie = 0, Point d'attaque = 0)
+2024-12-09 00:14:39 [main] INFO  org.example.utils.Fight - Enemy is dead
+2024-12-09 00:14:39 [main] INFO  org.example.Main - Enemy defeated. Remaining enemies: 1
+2024-12-09 00:14:40 [main] INFO  org.example.Main - Player is in area 3 of Test
+2024-12-09 00:14:40 [main] INFO  org.example.Main - Enemies in area 3: 
+2024-12-09 00:14:40 [main] INFO  org.example.Main - Congratulations! Player has reached the end of the map Test and found the Grail.
