@@ -27,20 +27,25 @@ public class Main {
         System.out.println("Bienvenue dans la quête du Graal");
 
         System.out.println(
-                "Choisissez votre personnage : \n-1 Artur Pendragon"
+                "Choisissez votre personnage : \n-1 Artur Pendragon (défaut)"
                         + "\n-2 Lancelot, le fameux stratège"
                         + "\n-3 Genièvre, la force incarnée"
         );
-        int userHeroChoice = reader.nextInt();
-        heroChoice(userHeroChoice);
+        while (hero == null ) {
+            String input = reader.nextLine();
+            int userHeroChoice = input.isEmpty() ? 1 : Integer.parseInt(input);
+            heroChoice(userHeroChoice);
+        }
 
         System.out.println(
-                "Où souhaitez vous aller chercher le Graal : \n-1 Le chateau Caermaloyw"
+                "Où souhaitez vous aller chercher le Graal : \n-1 Le chateau Caermaloyw (défaut)"
                         + "\n-2 La Taverne du chat noir"
         );
-        int userMapChoice = reader.nextInt();
-
-        mapChoice(userMapChoice);
+        while (map == null ) {
+            String input = reader.nextLine();
+            int userMapChoice = input.isEmpty() ? 1 : Integer.parseInt(input);
+            mapChoice(userMapChoice);
+        }
         gamePlan();
     }
 
@@ -48,22 +53,27 @@ public class Main {
         switch (userchoice) {
 
             case 1:
-                hero = new Hero(250, 20, SpecialCapacity.HEALING);
+                hero = new Hero(270, 20, SpecialCapacity.HEALING);
                 System.out.println("Vous avez choisi Artur Pendragon\n");
+                logger.info("Le personnage choisi est Artur Pendragon");
                 break;
 
             case 2:
-                hero = new Hero(270, 14, SpecialCapacity.RAGE);
-                System.out.println("Vous avez choisi Lancelot\n");
+                hero = new Hero(310, 16, SpecialCapacity.RAGE);
+                System.out.println("Vous avez choisi Lancelotdu lac\n");
+                logger.info("Le personnage choisi est Lancelot du lac");
                 break;
 
             case 3:
                 hero = new Hero(2300, 40, SpecialCapacity.ONE_SHOT);
                 System.out.println("Vous avez choisi Genièvre\n");
+                logger.info("Le personnage choisi est Genièvre");
                 break;
 
             default:
+                logger.info("Le personnage choisi est invalide");
                 throw new IllegalArgumentException("Choix invalide !\n");
+
         }
     }
 
@@ -73,14 +83,17 @@ public class Main {
             case 1:
                 map = new Map("Le Chateau Caermaloyw", 1, 7);
                 System.out.println("Carte choisie : Chateau Caermaloyw\n");
+                logger.info("La carte choisi est le Chateau de Caermaloyw");
                 break;
 
             case 2:
                 map = new Map("La Taverne du chat noir", 1, 4);
                 System.out.println("Carte choisie : Taverne du chat noir\n");
+                logger.info("La carte choisi est la Taverne du chat noir");
                 break;
 
             default:
+                logger.info("La carte choisi est invalide");
                 throw new IllegalArgumentException("Choix invalide !");
         }
     }
@@ -89,12 +102,11 @@ public class Main {
         while (!map.isEndOfMap() && hero.isAlive()) {
             Area currentArea = map.getCurrentArea();
             System.out.println("Vous êtes dans la zone " + map.getCurrentPosition() + " de " + map.getName());
-            System.out.println("Il y a " + currentArea.getNbEnemies() + " ennemis dans cette zone.");//TODO Peut on faire un getclass pour indiquer quels sont les enemies ?
-
-            int initialNbEnemies = currentArea.getNbEnemies();
+            logger.info("Le joueur est dans la zone " + map.getCurrentPosition() + " de " + map.getName());
+            System.out.println("Il y a " + currentArea.getNbEnemies() + " ennemis dans cette zone.\n");//TODO Peut on faire un getclass pour indiquer quels sont les enemies ?
 
             while (!currentArea.getEnemies().isEmpty()) {
-                System.out.println(currentArea.getEnemies().getFirst() + " s'approche !");
+                System.out.println(currentArea.getEnemies().getFirst() + " s'approche !\n");
 
                 while (hero.isAlive() && currentArea.getEnemies().getFirst().isAlive()) {
                     Fight.heroAttackEnnemy(hero, currentArea.getEnemies().getFirst());
@@ -106,7 +118,7 @@ public class Main {
                 }
 
                 if (!currentArea.getEnemies().getFirst().isAlive()) {
-                    System.out.println("L'ennemi est vaincu !");
+                    System.out.println("L'ennemi est vaincu !\n");
                     currentArea.getEnemies().removeFirst();
                     logger.info("nb of enemies left : " + currentArea.getEnemies().size());
                     logger.info(currentArea.getEnemies());

@@ -36,7 +36,7 @@ public class Fight {
 
         if (!hero.isSpecialCapacityUsed) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Voulez vous utiliser votre capacité spéciale ? (oui/non)");
+            System.out.println("Voulez vous utiliser votre capacité spéciale ? (oui/Non)");
             String response = scanner.nextLine();
 
             if (response.equals("oui")) {
