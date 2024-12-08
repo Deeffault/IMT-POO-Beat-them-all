@@ -10,9 +10,9 @@ public enum SpecialCapacity {
     HEALING,
 
     /**
-     * The rage capacity allows the hero to double his attacks against an ennemy.
+     * The invincibility capacity allows the hero to double his attacks against an ennemy.
      */
-    RAGE,
+    INVINCIBILITY,
 
     /**
      * The one-shot capacity allows the hero to defeat an enemy in one hit.

@@ -1,7 +1,7 @@
 package org.example.utils;
 
 import org.example.characters.Brigand;
-import org.example.characters.Ennemy;
+import org.example.characters.Enemy;
 import org.example.characters.Gangster;
 import org.example.characters.Wrestler;
 
@@ -14,7 +14,8 @@ import java.util.Random;
  */
 public class Area {
     private int nbEnemies;
-    private ArrayList<Ennemy> enemies;
+
+    public ArrayList<Enemy> enemies;
 
     /**
      * Constructs an empty area with no enemies.
@@ -36,7 +37,7 @@ public class Area {
         for (int i = 0; i < nbEnemies; i++) {
             int enemyType = random.nextInt(3); // 0, 1, or 2
 
-            Ennemy enemy;
+            Enemy enemy;
             switch (enemyType) {
                 case 0:
                     enemy = new Brigand();
@@ -69,7 +70,18 @@ public class Area {
      *
      * @return the list of enemies
      */
-    public ArrayList<Ennemy> getEnemies() {
+    public ArrayList<Enemy> getEnemies() {
         return enemies;
     }
+
+    /**
+     * Set an ArrayList of enemies
+     *
+     * @param enemies
+     */
+    public void setEnemies(ArrayList<Enemy> enemies) {
+        this.enemies = enemies;
+        this.nbEnemies = enemies.size();
+    }
+
 }

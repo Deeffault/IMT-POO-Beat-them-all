@@ -47,7 +47,7 @@ public class Map {
     private void generateAreas() {
         for (int i = start; i <= end; i++) {
             Area newArea = new Area();
-            if (i != this.start || i != this.end) {
+            if (i != start && i != end) {
                 newArea.generateEnemies();
             }
             areas.add(newArea);

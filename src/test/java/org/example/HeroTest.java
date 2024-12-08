@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.characters.Ennemy;
+import org.example.characters.Enemy;
 import org.example.characters.Hero;
 import org.example.characters.SpecialCapacity;
 import org.junit.jupiter.api.Test;
@@ -41,7 +41,7 @@ class HeroTest {
     @Test
     void useSpecialCapacityOneShot() {
         Hero hero = new Hero(100, 15, SpecialCapacity.ONE_SHOT);
-        Ennemy target = new Ennemy(100, 15);
+        Enemy target = new Enemy(100, 15);
 
         hero.useSpecialCapacity(target);
         assertFalse(target.isAlive());
@@ -49,8 +49,8 @@ class HeroTest {
 
     @Test
     void useSpecialCapacityRage() {
-        Hero hero = new Hero(100, 15, SpecialCapacity.RAGE);
-        Ennemy target = new Ennemy(100, 15);
+        Hero hero = new Hero(100, 15, SpecialCapacity.INVICIBILITY);
+        Enemy target = new Enemy(100, 15);
 
         hero.useSpecialCapacity(target);
         assertEquals(30, hero.attack());

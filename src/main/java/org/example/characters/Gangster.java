@@ -4,7 +4,7 @@ package org.example.characters;
  * This class represents a gangster enemy in the game.
  * A gangster has specific health points and attack points.
  */
-public class Gangster extends Ennemy {
+public class Gangster extends Enemy {
 
     /**
      * Constructs a new Gangster with predefined health points and attack points.
@@ -33,5 +33,10 @@ public class Gangster extends Ennemy {
     public void takeDamage(int damage) {
         System.out.println("Le gangster reçoit " + damage + " dégâts !");
         super.takeDamage(damage);
+    }
+
+    @Override
+    public String toString() {
+        return "Gangster (Point de vie = " + healthPoints + ", Point d'attaque = " + attackPoints + ")";
     }
 }

@@ -5,6 +5,7 @@ import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import org.example.characters.Enemy;
 import org.example.utils.Fight;
 import org.example.utils.Map;
 import org.example.utils.Area;
@@ -13,8 +14,8 @@ import org.example.characters.SpecialCapacity;
 
 
 public class Main {
-    private static Hero hero;
-    private static Map map;
+    public static Hero hero;
+    public static Map map;
 
     private static final Logger logger = LogManager.getLogger(Main.class);
 
@@ -27,21 +28,28 @@ public class Main {
         System.out.println("Bienvenue dans la quête du Graal");
 
         System.out.println(
-                "Choisissez votre personnage : \n-1 Artur Pendragon (défaut)"
-                        + "\n-2 Lancelot, le fameux stratège"
-                        + "\n-3 Genièvre, la force incarnée"
+                """
+                        Choisissez votre personnage :\s
+                        -1 Artur Pendragon (défaut)\
+                        
+                        -2 Lancelot, le fameux stratège\
+                        
+                        -3 Genièvre, la force incarnée"""
         );
-        while (hero == null ) {
+        while (hero == null) {
             String input = reader.nextLine();
             int userHeroChoice = input.isEmpty() ? 1 : Integer.parseInt(input);
             heroChoice(userHeroChoice);
         }
 
         System.out.println(
-                "Où souhaitez vous aller chercher le Graal : \n-1 Le chateau Caermaloyw (défaut)"
-                        + "\n-2 La Taverne du chat noir"
+                """
+                        Où souhaitez vous aller chercher le Graal :\s
+                        -1 Le chateau Caermaloyw (défaut)\
+                        
+                        -2 La Taverne du chat noir"""
         );
-        while (map == null ) {
+        while (map == null) {
             String input = reader.nextLine();
             int userMapChoice = input.isEmpty() ? 1 : Integer.parseInt(input);
             mapChoice(userMapChoice);
@@ -49,8 +57,8 @@ public class Main {
         gamePlan();
     }
 
-    public static void heroChoice(int userchoice) {
-        switch (userchoice) {
+    public static void heroChoice(int userChoice) {
+        switch (userChoice) {
 
             case 1:
                 hero = new Hero(270, 20, SpecialCapacity.HEALING);
@@ -59,8 +67,8 @@ public class Main {
                 break;
 
             case 2:
-                hero = new Hero(310, 16, SpecialCapacity.RAGE);
-                System.out.println("Vous avez choisi Lancelotdu lac\n");
+                hero = new Hero(310, 16, SpecialCapacity.INVINCIBILITY);
+                System.out.println("Vous avez choisi Lancelot du lac\n");
                 logger.info("Le personnage choisi est Lancelot du lac");
                 break;
 
@@ -71,14 +79,14 @@ public class Main {
                 break;
 
             default:
-                logger.info("Le personnage choisi est invalide");
+                logger.info("Le choix  de personnage est invalide");
                 throw new IllegalArgumentException("Choix invalide !\n");
 
         }
     }
 
-    public static void mapChoice(int userchoice) {
-        switch (userchoice) {
+    public static void mapChoice(int userChoice) {
+        switch (userChoice) {
 
             case 1:
                 map = new Map("Le Chateau Caermaloyw", 1, 7);
@@ -91,6 +99,11 @@ public class Main {
                 System.out.println("Carte choisie : Taverne du chat noir\n");
                 logger.info("La carte choisi est la Taverne du chat noir");
                 break;
+            case 42:
+                map = new Map("Test", 1, 3);
+                System.out.println("Carte de test\n"); //Map used for UT
+                logger.info("Carte de test choisi");
+                break;
 
             default:
                 logger.info("La carte choisi est invalide");
@@ -101,15 +114,27 @@ public class Main {
     public static void gamePlan() {
         while (!map.isEndOfMap() && hero.isAlive()) {
             Area currentArea = map.getCurrentArea();
-            System.out.println("Vous êtes dans la zone " + map.getCurrentPosition() + " de " + map.getName());
-            logger.info("Le joueur est dans la zone " + map.getCurrentPosition() + " de " + map.getName());
-            System.out.println("Il y a " + currentArea.getNbEnemies() + " ennemis dans cette zone.\n");//TODO Peut on faire un getclass pour indiquer quels sont les enemies ?
+            System.out.println("Vous arrivez dans la zone " + map.getCurrentPosition() + " de " + map.getName());
+            logger.info("Le joueur est dans la zone {} de {}", map.getCurrentPosition(), map.getName());
+
+            // get enemy types
+            StringBuilder enemyTypes = new StringBuilder();
+            for (Enemy enemy : currentArea.getEnemies()) {
+                if (!enemyTypes.isEmpty()) {
+                    enemyTypes.append(", ");
+                }
+                enemyTypes.append(enemy.getClass().getSimpleName());
+            }
+
+            System.out.println("Il y a " + currentArea.getNbEnemies() + " ennemis dans cette zone : "
+                    + enemyTypes + ".\n");
+            logger.info("Types des ennemis dans la zone {} : {}", map.getCurrentPosition(), enemyTypes);
 
             while (!currentArea.getEnemies().isEmpty()) {
                 System.out.println(currentArea.getEnemies().getFirst() + " s'approche !\n");
 
                 while (hero.isAlive() && currentArea.getEnemies().getFirst().isAlive()) {
-                    Fight.heroAttackEnnemy(hero, currentArea.getEnemies().getFirst());
+                    Fight.heroAttackEnemy(hero, currentArea.getEnemies().getFirst());
                 }
 
                 if (!hero.isAlive()) {
@@ -120,7 +145,7 @@ public class Main {
                 if (!currentArea.getEnemies().getFirst().isAlive()) {
                     System.out.println("L'ennemi est vaincu !\n");
                     currentArea.getEnemies().removeFirst();
-                    logger.info("nb of enemies left : " + currentArea.getEnemies().size());
+                    logger.info("nb of enemies left : {}", currentArea.getEnemies().size());
                     logger.info(currentArea.getEnemies());
                 }
             }
@@ -135,5 +160,6 @@ public class Main {
                     + map.getName() + " et trouvé le Graal !");
         }
     }
+
 
 }

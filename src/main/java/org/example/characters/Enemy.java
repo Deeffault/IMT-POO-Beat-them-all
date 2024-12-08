@@ -4,7 +4,7 @@ package org.example.characters;
  * This class represents an enemy character in the game.
  * An enemy has health points and attack points.
  */
-public class Ennemy implements Character {
+public class Enemy implements Character {
 
     /**
      * The health points of the enemy.
@@ -22,7 +22,7 @@ public class Ennemy implements Character {
      * @param healthPoints the health points of the enemy
      * @param attackPoints the attack points of the enemy
      */
-    public Ennemy(int healthPoints, int attackPoints) {
+    public Enemy(int healthPoints, int attackPoints) {
         this.healthPoints = healthPoints;
         this.attackPoints = attackPoints;
     }
@@ -95,9 +95,6 @@ public class Ennemy implements Character {
 
     @Override
     public String toString() {
-        return "Ennemy{" +
-                "healthPoints=" + healthPoints +
-                ", attackPoints=" + attackPoints +
-                '}';
+        return "Ennemi (Point de vie = " + healthPoints + ", Point d'attaque = " + attackPoints + ")";
     }
 }

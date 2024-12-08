@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
  * This class represents a hero character in the game.
  * A hero has health points, attack points, and a special capacity.
  */
-public class Hero implements org.example.characters.Character {
+public class Hero implements Character {
 
     private static final Logger logger = LogManager.getLogger(Hero.class);
 
@@ -122,25 +122,18 @@ public class Hero implements org.example.characters.Character {
                 healthPoints += 10;
                 isSpecialCapacityUsed = true;
                 break;
-            case RAGE:
-//                while (target.isAlive()) {
-//                    int originalAttackPoints = attackPoints;
-//                    attackPoints *= 2;
-//                    logger.info("ennemy is alive" + target.isAlive());
-//                    if (!target.isAlive()) {
-//                        attackPoints = originalAttackPoints;
-//                        isSpecialCapacityUsed = true;
-//                        break;
-//                    }
-//                }
+            case INVINCIBILITY:
+
+                break;
             case ONE_SHOT:
-                if (target instanceof Ennemy) {
-                    target.takeDamage(((Ennemy) target).getHealthPoints());
+                if (target instanceof Enemy) {
+                    target.takeDamage(((Enemy) target).getHealthPoints());
                     isSpecialCapacityUsed = true;
                 }
                 break;
         }
     }
+
 
     @Override
     public String toString() {
