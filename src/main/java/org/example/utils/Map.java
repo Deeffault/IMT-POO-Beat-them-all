@@ -128,4 +128,23 @@ public class Map {
             currentPosition++;
         }
     }
+
+    public void displayMap() {
+        System.out.println("╔══════════════════════════════╗");
+        System.out.println(" Carte : " + name + "   ");
+        System.out.println("╚══════════════════════════════╝");
+        System.out.println("Votre position : " + currentPosition + "/" + end);
+        System.out.println("══════════════════════════════");
+
+        for (int i = 0; i < areas.size(); i++) {
+            if (i == currentPosition - start) {
+                System.out.print("🏃 "); // Symbole pour le joueur
+            } else {
+                System.out.print("⬜ "); // Symbole pour une zone
+            }
+        }
+        System.out.println();
+        System.out.println("══════════════════════════════");
+    }
+
 }

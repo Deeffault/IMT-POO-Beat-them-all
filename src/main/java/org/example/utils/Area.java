@@ -84,4 +84,20 @@ public class Area {
         this.nbEnemies = enemies.size();
     }
 
+    public void displayArea() {
+        System.out.println("╔════════════════════════════╗");
+        System.out.println("║        Zone actuelle       ║");
+        System.out.println("╚════════════════════════════╝");
+
+        if (enemies.isEmpty()) {
+            System.out.println("Cette zone est sûre. Aucun ennemi n'est présent.");
+        } else {
+            System.out.println("Attention, des ennemis sont ici :");
+            for (int i = 0; i < enemies.size(); i++) {
+                System.out.println("   [" + (i + 1) + "] " + enemies.get(i).toString());
+            }
+        }
+        System.out.println("══════════════════════════════");
+    }
+
 }
