@@ -9,14 +9,14 @@ import org.apache.logging.log4j.Logger;
  */
 public class Hero implements Character {
 
-    private static final Logger logger = LogManager.getLogger(Hero.class);
-
     public int healthPoints;
     public int attackPoints;
     public SpecialCapacity specialCapacity;
     public boolean isSpecialCapacityUsed = false;
 
     /**
+     * Constructs a new Hero with the specified health points, attack points, and special capacity.
+     *
      * @param healthPoints    the health points of the hero
      * @param attackPoints    the attack points of the hero
      * @param specialCapacity the special capacity of the hero
@@ -98,7 +98,7 @@ public class Hero implements Character {
      */
     @Override
     public boolean isAlive() {
-        return healthPoints >= 0;
+        return healthPoints > 0;
     }
 
     /**
@@ -119,11 +119,16 @@ public class Hero implements Character {
     public void useSpecialCapacity(Character target) {
         switch (specialCapacity) {
             case HEALING:
-                healthPoints += 10;
+                healthPoints += 50;
                 isSpecialCapacityUsed = true;
                 break;
-            case INVINCIBILITY:
-
+            case STUN:
+                if (target instanceof Enemy) {
+                    ((Enemy) target).setStunned(true);
+                    System.out.println("\nL'ennemi est étourdi et ne fait plus de dégats pour le moment," +
+                            " profitez-en pour l'attaquer !");
+                    isSpecialCapacityUsed = true;
+                }
                 break;
             case ONE_SHOT:
                 if (target instanceof Enemy) {
@@ -134,7 +139,11 @@ public class Hero implements Character {
         }
     }
 
-
+    /**
+     * Returns a string representation of the hero.
+     *
+     * @return a string representation of the hero
+     */
     @Override
     public String toString() {
         return "Hero{" +

@@ -10,18 +10,7 @@ public class Brigand extends Enemy {
      * Constructs a new Brigand with predefined health points and attack points.
      */
     public Brigand() {
-        super(50, 10); // Specific stats for brigand
-    }
-
-    /**
-     * Performs an attack and returns the attack points.
-     *
-     * @return the attack points
-     */
-    @Override
-    public int attack() {
-        System.out.println("Le brigand attaque avec sa massue !");
-        return getAttackPoints();
+        super(65, 10); // Specific stats for brigand
     }
 
     /**
@@ -35,6 +24,11 @@ public class Brigand extends Enemy {
         super.takeDamage(damage);
     }
 
+    /**
+     * Returns a string representation of the brigand.
+     *
+     * @return a string representation of the brigand
+     */
     @Override
     public String toString() {
         return "Brigand (Point de vie = " + healthPoints + ", Point d'attaque = " + attackPoints + ")";

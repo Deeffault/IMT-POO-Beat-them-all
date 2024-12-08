@@ -5,16 +5,9 @@ package org.example.characters;
  * An enemy has health points and attack points.
  */
 public class Enemy implements Character {
-
-    /**
-     * The health points of the enemy.
-     */
     public int healthPoints;
-
-    /**
-     * The attack points of the enemy.
-     */
     public int attackPoints;
+    private boolean isStunned;
 
     /**
      * Constructs a new Enemy with the specified health points and attack points.
@@ -25,6 +18,7 @@ public class Enemy implements Character {
     public Enemy(int healthPoints, int attackPoints) {
         this.healthPoints = healthPoints;
         this.attackPoints = attackPoints;
+        this.isStunned = false;
     }
 
     /**
@@ -70,13 +64,31 @@ public class Enemy implements Character {
      */
     @Override
     public int attack() {
-        return attackPoints;
+        return isStunned ? 0 : attackPoints;
+    }
+
+    /**
+     * Checks if the enemy is stunned.
+     *
+     * @return true if the enemy is stunned, false otherwise
+     */
+    public boolean isStunned() {
+        return isStunned;
+    }
+
+    /**
+     * Sets the stunned status of the enemy.
+     *
+     * @param stunned the new stunned status of the enemy
+     */
+    public void setStunned(boolean stunned) {
+        this.isStunned = stunned;
     }
 
     /**
      * Checks if the enemy is alive.
      *
-     * @return true if the enemy is alive, false otherwise·
+     * @return true if the enemy is alive, false otherwise
      */
     @Override
     public boolean isAlive() {
@@ -93,6 +105,11 @@ public class Enemy implements Character {
         healthPoints -= damage;
     }
 
+    /**
+     * Returns a string representation of the enemy.
+     *
+     * @return a string representation of the enemy
+     */
     @Override
     public String toString() {
         return "Ennemi (Point de vie = " + healthPoints + ", Point d'attaque = " + attackPoints + ")";

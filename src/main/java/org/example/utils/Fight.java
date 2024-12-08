@@ -1,11 +1,8 @@
 package org.example.utils;
 
-import org.example.characters.Enemy;
-import org.example.characters.Gangster;
-import org.example.characters.Hero;
+import org.example.characters.*;
 
 import java.util.Random;
-import java.util.Scanner;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,15 +18,15 @@ public class Fight {
      * Handles the attack logic between a hero and an enemy.
      * The hero can attack multiple times and use a special capacity if available.
      *
-     * @param hero   the hero character
+     * @param hero  the hero character
      * @param enemy the enemy character
      */
-    public static void heroAttackEnemy(Hero hero, Enemy enemy) {
+    public static void heroAttackEnemy(Hero hero, Enemy enemy, InputHandler inputHandler) {
         Random random = new Random();
 
         if (enemy instanceof Gangster && enemy.isAlive()) {
+            System.out.println("Le Gangster tire sur le héro avant que celui-ci n'attaque !");
             int gangsterDamage = enemy.attack();
-
             hero.takeDamage(gangsterDamage);
             System.out.println("Le héros reçoit " + gangsterDamage + " dégâts !");
             logger.info("The hero received {} damages !", gangsterDamage);
@@ -40,23 +37,23 @@ public class Fight {
             }
             System.out.println("Le héros a " + hero.getHealthPoints() + " points de vie restants !");
             logger.info("The hero has {} health points remaining", hero.getHealthPoints());
-
         }
 
         int attackCount = random.nextInt(5) + 1;
         logger.info("The hero attacks {} times", attackCount);
 
         if (!hero.isSpecialCapacityUsed) {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Voulez vous utiliser votre capacité spéciale ? (oui/Non)");
-            String response = scanner.nextLine();
+            String response = inputHandler.getInput("Voulez-vous utiliser votre capacité spéciale ? (oui/Non)");
 
-            if (response.equals("oui")) {
+            if ("oui".equalsIgnoreCase(response)) {
                 System.out.println("Le héros utilise sa capacité spéciale : " + hero.getSpecialCapacity());
                 logger.info("The hero use is special capacity : {}", hero.getSpecialCapacity());
-
-                hero.useSpecialCapacity(enemy);
-                hero.isSpecialCapacityUsed = true;
+                if (hero.getSpecialCapacity() == SpecialCapacity.HEALING) {
+                    hero.useSpecialCapacity(hero);
+                } else {
+                    hero.useSpecialCapacity(enemy);
+                    hero.isSpecialCapacityUsed = true;
+                }
             }
         }
 
@@ -71,9 +68,20 @@ public class Fight {
                 break;
             }
             System.out.println("L'ennemi a maintenant " + enemy.getHealthPoints() + " PV !");
+            try {
+                Thread.sleep(500); // Sleep for 500 milliseconds
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                System.out.println("Sleep interrupted");
+            }
         }
 
         if (enemy.isAlive() && !(enemy instanceof Gangster)) {
+            if (enemy instanceof Wrestler) {
+                System.out.println("Le catcheur attaque avec un coup de poing !");
+            } else {
+                System.out.println("Le brigand attaque avec sa massue !");
+            }
             int enemyDamage = enemy.attack();
             System.out.println("Le héros reçoit " + enemyDamage + " dégâts !");
             hero.takeDamage(enemyDamage);

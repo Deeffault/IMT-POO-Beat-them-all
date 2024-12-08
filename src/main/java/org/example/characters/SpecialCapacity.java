@@ -10,9 +10,9 @@ public enum SpecialCapacity {
     HEALING,
 
     /**
-     * The invincibility capacity allows the hero to double his attacks against an ennemy.
+     * The stun capacity allows the hero to stun an enemy.
      */
-    INVINCIBILITY,
+    STUN,
 
     /**
      * The one-shot capacity allows the hero to defeat an enemy in one hit.

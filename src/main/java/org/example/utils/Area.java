@@ -75,15 +75,18 @@ public class Area {
     }
 
     /**
-     * Set an ArrayList of enemies
+     * Sets the list of enemies in the area and updates the number of enemies.
      *
-     * @param enemies
+     * @param enemies the new list of enemies
      */
     public void setEnemies(ArrayList<Enemy> enemies) {
         this.enemies = enemies;
         this.nbEnemies = enemies.size();
     }
 
+    /**
+     * Displays the current state of the area, including the enemies present.
+     */
     public void displayArea() {
         System.out.println("╔════════════════════════════╗");
         System.out.println("║        Zone actuelle       ║");
@@ -95,9 +98,15 @@ public class Area {
             System.out.println("Attention, des ennemis sont ici :");
             for (int i = 0; i < enemies.size(); i++) {
                 System.out.println("   [" + (i + 1) + "] " + enemies.get(i).toString());
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    System.out.println("Sleep interrupted");
+                }
             }
         }
         System.out.println("══════════════════════════════");
+        System.out.println();
     }
-
 }

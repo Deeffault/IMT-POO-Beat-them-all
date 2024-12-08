@@ -8,14 +8,14 @@ import java.util.ArrayList;
  */
 public class Map {
 
-    private String name;
-    private int start;
-    private int end;
+    private final String name;
+    private final int start;
+    private final int end;
 
-    private int length;
+    private final int length;
 
     private int currentPosition;
-    private ArrayList<Area> areas;
+    private final ArrayList<Area> areas;
 
     /**
      * Constructs a new Map with the specified name, start, and end positions.
@@ -142,9 +142,14 @@ public class Map {
             } else {
                 System.out.print("⬜ "); // Symbole pour une zone
             }
+            try {
+                Thread.sleep(500); // Sleep for 500 milliseconds
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                System.out.println("Sleep interrupted");
+            }
         }
         System.out.println();
         System.out.println("══════════════════════════════");
     }
-
 }
