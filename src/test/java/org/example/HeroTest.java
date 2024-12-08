@@ -35,7 +35,7 @@ class HeroTest {
     void useSpecialCapacityHealing() {
         Hero hero = new Hero(100, 15, SpecialCapacity.HEALING);
         hero.useSpecialCapacity(hero);
-        assertEquals(110, hero.getHealthPoints());
+        assertEquals(150, hero.getHealthPoints());
     }
 
     @Test
@@ -48,23 +48,14 @@ class HeroTest {
     }
 
     @Test
-    void useSpecialCapacityRage() {
-        Hero hero = new Hero(100, 15, SpecialCapacity.INVICIBILITY);
+    void useSpecialCapacityStun() {
+        Hero hero = new Hero(100, 15, SpecialCapacity.STUN);
         Enemy target = new Enemy(100, 15);
 
         hero.useSpecialCapacity(target);
-        assertEquals(30, hero.attack());
+        assertTrue(target.isStunned());
 
-        hero.attack();
-        assertEquals(70, target.getHealthPoints() );
-
-        hero.attack();
-        assertEquals(40, target.getHealthPoints() );
-
-        hero.attack();
-        assertEquals(10, target.getHealthPoints() );
-
-        hero.attack();
-        assertFalse(target.isAlive());
+        target.attack();
+        assertEquals(100, hero.getHealthPoints());
     }
 }

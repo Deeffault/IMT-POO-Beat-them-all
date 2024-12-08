@@ -11,19 +11,19 @@ public interface Character {
      *
      * @return the attack points
      */
-    public int attack();
+    int attack();
 
     /**
      * Checks if the character is alive.
      *
      * @return true if the character is alive, false otherwise
      */
-    public boolean isAlive();
+    boolean isAlive();
 
     /**
      * Takes damage and reduces the character's health points.
      *
      * @param damage the amount of damage to take
      */
-    public void takeDamage(int damage);
+    void takeDamage(int damage);
 }

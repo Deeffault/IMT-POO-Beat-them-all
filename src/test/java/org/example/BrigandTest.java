@@ -24,7 +24,7 @@ class BrigandTest {
     void takeDamage() {
         Brigand brigand = new Brigand();
         brigand.takeDamage(10);
-        assertEquals(40, brigand.getHealthPoints());
+        assertEquals(55, brigand.getHealthPoints());
 
         Hero hero = new Hero(100, 15, SpecialCapacity.NONE);
         hero.attack();

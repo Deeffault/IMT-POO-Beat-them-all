@@ -10,18 +10,7 @@ public class Gangster extends Enemy {
      * Constructs a new Gangster with predefined health points and attack points.
      */
     public Gangster() {
-        super(60, 15);
-    }
-
-    /**
-     * Performs an attack and returns the attack points.
-     *
-     * @return the attack points
-     */
-    @Override
-    public int attack() {
-        System.out.println("Le gangster tire sur le héros avant qu'il n'approche !");
-        return getAttackPoints();
+        super(55, 15);
     }
 
     /**
@@ -35,6 +24,11 @@ public class Gangster extends Enemy {
         super.takeDamage(damage);
     }
 
+    /**
+     * Returns a string representation of the gangster.
+     *
+     * @return a string representation of the gangster
+     */
     @Override
     public String toString() {
         return "Gangster (Point de vie = " + healthPoints + ", Point d'attaque = " + attackPoints + ")";
